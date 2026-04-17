@@ -1,101 +1,101 @@
-# List Of Tasks -- Documentație Tehnică
+# List Of Tasks -- Technical Documentation
 
-# Studenți:
+# Students:
 
 - **Andone Andrei**
 - **Țurcă Cosmin-Constantin**
 
-# 1. Prezentare Generală
+# 1. General Overview
 
-Aplicația List Of Tasks este o platformă web dedicată gestionării eficiente a sarcinilor și activităților, având ca scop îmbunătățirea productivității utilizatorilor. Proiectul este construit pe stack-ul MERN (MongoDB, Express.js, React.js, Node.js), oferind o soluție modernă, rapidă și scalabilă.
+The List Of Tasks application is a web platform dedicated to the efficient management of tasks and activities, aiming to improve user productivity. The project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js), providing a modern, fast, and scalable solution.
 
-Codul sursă este organizat în două directoare principale:
+The source code is organized into two main directories:
 
-- **Backend:** API-ul serverului și logica de bază de date.
+- **Backend:** The server API and database logic.
 
-- **Frontend:** Interfața utilizator reactivă.
+- **Frontend:** The reactive user interface.
 
-# 2. Obiective Tehnice
+# 2. Technical Objectives
 
-- **Arhitectură Modernă:** Utilizarea React împreună cu Vite pentru o performanță optimă a frontend-ului.
+- **Modern Architecture:** Using React together with Vite for optimal frontend performance.
 
-- **Design Responsive & Modern:** Implementarea interfeței grafice folosind Tailwind CSS, asigurând un design utilitar, consistent și adaptabil pe orice dispozitiv (mobil, tabletă, desktop).
+- **Responsive & Modern Design:** Implementing the graphical interface with Tailwind CSS, ensuring a utility-first, consistent, and adaptable design on any device (mobile, tablet, desktop).
 
-- **Interactivitate:** Feedback vizual imediat la acțiunile utilizatorului (adăugare, ștergere, completare task).
+- **Interactivity:** Immediate visual feedback for user actions (adding, deleting, completing tasks).
 
-- **API RESTful:** Arhitectură backend standardizată pentru gestionarea resurselor de tip Task.
+- **RESTful API:** A standardized backend architecture for managing Task resources.
 
-- **Persistența Datelor:** Salvarea sigură a informațiilor utilizând baza de date non-relațională MongoDB.
+- **Data Persistence:** Secure data storage using the non-relational MongoDB database.
 
-# 3. Funcționalități
+# 3. Features
 
-- **Gestiunea Sarcinilor (CRUD):** Utilizatorii pot crea sarcini noi, vizualiza lista completă, edita detaliile și șterge sarcinile care nu mai sunt necesare.
+- **Task Management (CRUD):** Users can create new tasks, view the full list, edit details, and delete tasks that are no longer needed.
 
-- **Mark as Completed:** Funcționalitate de tip "toggle" pentru a marca o sarcină ca fiind finalizată sau în desfășurare.
+- **Mark as Completed:** Toggle functionality to mark a task as completed or in progress.
 
-- **Interfață Dinamică:** Actualizarea listei de sarcini în timp real fără reîncărcarea paginii.
+- **Dynamic Interface:** Real-time updates of the task list without reloading the page.
 
-- **Design Adaptiv:** Layout flexibil realizat cu clasele utilitare Tailwind.
+- **Adaptive Design:** Flexible layout built with Tailwind utility classes.
 
-- **Mod Offline (Offline-First):** Aplicația funcționează și fără internet, salvând datele local și sincronizându-le automat când revine conexiunea.
+- **Offline Mode (Offline-First):** The application works even without internet access, saving data locally and automatically syncing it when the connection is restored.
 
-# 4. Tehnologii Utilizate
+# 4. Technologies Used
 
 **Frontend**
 
 - **React (Vite)** + **TypeScript**.
 
-- **Tailwind CSS** (folosit pentru stilizare rapidă, sistem de grid/flexbox și design responsive).
+- **Tailwind CSS** (used for fast styling, grid/flexbox systems, and responsive design).
 
-- **React Router DOM:** Pentru gestionarea rutelor și navigarea în aplicație (SPA - Single Page Application).
+- **React Router DOM:** For route management and navigation in the application (SPA - Single Page Application).
 
-- **Axios / Fetch API:** Pentru realizarea cererilor HTTP către backend.
+- **Axios / Fetch API:** For making HTTP requests to the backend.
 
 **Backend**
 
-- **Node.js & Express.js:** Arhitectură server-side modulară.
+- **Node.js & Express.js:** Modular server-side architecture.
 
-- **Firebase Admin SDK:** Bibliotecă utilizată pe server pentru verificarea integrității token-urilor JWT primite de la client.
+- **Firebase Admin SDK:** Library used on the server to verify the integrity of JWT tokens received from the client.
 
-- **Mongoose:** Modelarea datelor (Schema) pentru interacțiunea cu MongoDB.
+- **Mongoose:** Data modeling (Schema) for interaction with MongoDB.
 
-- **Input Validation:** Strat dedicat de validare a datelor primite (Request Body) pentru a asigura integritatea informațiilor înainte de procesare.
+- **Input Validation:** Dedicated layer for validating received data (Request Body) to ensure data integrity before processing.
 
-- **Middleware:** Funcții intermediare pentru gestionarea autentificării și a erorilor.
+- **Middleware:** Intermediate functions for handling authentication and errors.
 
-**Stocare**
+**Storage**
 
-- **MongoDB:** Bază de date NoSQL.
+- **MongoDB:** NoSQL database.
 
-- **Mongoose:** ODM (Object Data Modeling) pentru modelarea structurii datelor (Schema) și validare.
+- **Mongoose:** ODM (Object Data Modeling) for defining data structure (Schema) and validation.
 
-# 5. Metodologie Agile
+# 5. Agile Methodology
 
-Proiectul a fost dezvoltat urmând o abordare iterativă, structurată în Sprint-uri:
+The project was developed using an iterative approach, structured into Sprints:
 
-**Sprint 1: MVP & Arhitectură (Core)**
+**Sprint 1: MVP & Architecture (Core)**
 
-- **Planificare & Design:** Definirea structurii de date (Schema) și a design-ului UI în Tailwind CSS.
+- **Planning & Design:** Defining the data structure (Schema) and UI design in Tailwind CSS.
 
-- **Implementare:** Configurarea mediului (Vite + TypeScript), implementarea autentificării cu Firebase și a operațiilor de bază (CRUD) pentru task-uri.
+- **Implementation:** Setting up the environment (Vite + TypeScript), implementing Firebase authentication, and basic task CRUD operations.
 
-- **Evaluare:** Testarea fluxului de login și a conectivității cu baza de date MongoDB.
+- **Evaluation:** Testing the login flow and MongoDB database connectivity.
 
-**Sprint 2: Funcționalități Avansate (Offline First)**
+**Sprint 2: Advanced Features (Offline First)**
 
-- **Planificare:** Analiza cerințelor pentru persistența datelor fără internet.
+- **Planning:** Analyzing requirements for offline data persistence.
 
-- **Implementare:** Integrarea IndexedDB pentru stocare locală și sincronizarea automată cu backend-ul la reconectare. Adăugarea filtrelor și a categoriilor.
+- **Implementation:** Integrating IndexedDB for local storage and automatic synchronization with the backend upon reconnection. Adding filters and categories.
 
-- **Testare:** Verificarea scenariilor "Offline" și a consistenței datelor.
+- **Testing:** Verifying offline scenarios and data consistency.
 
 **Sprint 3: UI/UX & Export**
 
-- **Design:** Rafinarea interfeței.
+- **Design:** Refining the interface.
 
-- **Implementare:** Adăugarea funcțiilor de Export (PDF, CSV, Excel) și Import.
+- **Implementation:** Adding Export (PDF, CSV, Excel) and Import functionalities.
 
-- **Lansare & Retrospectivă:** Optimizarea build-ului pentru producție (Vercel).
+- **Launch & Retrospective:** Optimizing the build for production (Vercel).
 
 ## Development Flow
 
@@ -109,26 +109,26 @@ Proiectul a fost dezvoltat urmând o abordare iterativă, structurată în Sprin
 
 ![React Components Architecture](./react-components-architecture.png)
 
-# 8. Documentație API
+# 8. API Documentation
 
-Toate rutele sunt protejate și necesită autentificare prin Header-ul Authorization.
+All routes are protected and require authentication through the Authorization Header.
 
-**GET /api/tasks** Returnează lista sarcinilor asociate exclusiv utilizatorului autentificat.
+**GET /api/tasks** Returns the list of tasks associated exclusively with the authenticated user.
 
-**GET /api/tasks/:id** Returnează detaliile unei singure sarcini pe baza ID-ului (doar dacă aparține utilizatorului).
+**GET /api/tasks/:id** Returns the details of a single task based on its ID (only if it belongs to the user).
 
-**POST /api/tasks** Creează o nouă sarcină validată. Body: { title, description, priority, deadline, category }.
+**POST /api/tasks** Creates a new validated task. Body: { title, description, priority, deadline, category }.
 
-**PUT /api/tasks/:id** Actualizează o sarcină existentă (modificare status, conținut sau prioritate).
+**PUT /api/tasks/:id** Updates an existing task (status, content, or priority changes).
 
-**DELETE /api/tasks/:id** Șterge permanent o sarcină din baza de date.
+**DELETE /api/tasks/:id** Permanently deletes a task from the database.
 
-# 9. Rute Frontend
+# 9. Frontend Routes
 
-**Rute Publice:** /login – Pagina de autentificare. Dacă utilizatorul este deja logat, este redirecționat automat către Dashboard.
+**Public Routes:** /login – The authentication page. If the user is already logged in, they are automatically redirected to the Dashboard.
 
-**Rute Protejate (Private):**/ (Root) încarcă componenta \<TaskBoard /\>.
+**Protected (Private) Routes:**/ (Root) loads the <TaskBoard /> component.
 
-# 10. Concluzii
+# 10. Conclusions
 
-List Of Tasks demonstrează capacitatea de a construi o aplicație Full Stack funcțională și estetică. Utilizarea Tailwind CSS a permis o dezvoltare rapidă a interfeței, în timp ce arhitectura MERN asigură performanță și scalabilitate. Proiectul este pregătit pentru extinderi viitoare.
+List Of Tasks demonstrates the ability to build a functional and aesthetically pleasing Full Stack application. The use of Tailwind CSS enabled rapid interface development, while the MERN architecture ensures performance and scalability. The project is ready for future extensions.
