@@ -1,6 +1,6 @@
 # List of tasks - Technical Documentation
 
-A MERN-based task management web application with live deployment and technical documentation.
+A MERN-based task management web application developed as a university project for the Web Systems Development course.
 
 ## Application Screenshots
 
@@ -21,7 +21,7 @@ The project was developed collaboratively, with both team members contributing t
 
 ## 1. General Overview
 
-The list of tasks application is a web platform dedicated to the efficient management of tasks and activities, aiming to improve user productivity. The project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js), providing a modern, fast, and scalable solution.
+The List of tasks application is a university project developed for the Web Systems Development course. It is a web platform dedicated to the efficient management of tasks and activities, aiming to improve user productivity. The project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js), providing a modern, fast, and scalable solution.
 
 The source code is organized into two main directories:
 
