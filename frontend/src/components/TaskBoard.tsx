@@ -39,15 +39,15 @@ import {
 } from "@hello-pangea/dnd";
 
 const CATEGORIES: TaskCategory[] = [
-  "Facultate",
+  "Faculty",
   "Personal",
   "Shopping",
   "Work",
 ];
 const REPEATS: { value: TaskRepeat; label: string }[] = [
-  { value: "none", label: "Fără" },
-  { value: "daily", label: "Zilnic" },
-  { value: "weekly", label: "Săptămânal" },
+  { value: "none", label: "None" },
+  { value: "daily", label: "Daily" },
+  { value: "weekly", label: "Weekly" },
 ];
 
 const PRIORITIES: { value: TaskPriority; label: string }[] = [
@@ -141,7 +141,7 @@ export default function TaskBoard() {
 
   // composer state
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState<TaskCategory>("Facultate");
+  const [category, setCategory] = useState<TaskCategory>("Faculty");
   const [repeat, setRepeat] = useState<TaskRepeat>("none");
   const [priority, setPriority] = useState<TaskPriority>("medium");
   const [deadline, setDeadline] = useState<string>(""); // YYYY-MM-DD
@@ -202,7 +202,7 @@ export default function TaskBoard() {
     } catch {
       // OFFLINE
       await saveOfflineTask(input);
-      alert("Task salvat offline. Se va sincroniza când revii online.");
+      alert("Task saved offline. It will sync when you are back online.");
     }
 
     setTitle("");
@@ -401,13 +401,13 @@ export default function TaskBoard() {
         const rawTitle = (r.title ?? "").trim();
         if (!rawTitle) return null;
 
-        const cat = (r.category ?? "Facultate").trim() as TaskCategory;
+        const cat = (r.category ?? "Faculty").trim() as TaskCategory;
         const rep = (r.repeat ?? "none").trim() as TaskRepeat;
         const pr = (r.priority ?? "medium").trim() as TaskPriority;
 
         const safeCat: TaskCategory = CATEGORIES.includes(cat)
           ? cat
-          : "Facultate";
+          : "Faculty";
         const safeRep: TaskRepeat =
           rep === "daily" || rep === "weekly" || rep === "none" ? rep : "none";
         const safePr: TaskPriority =
@@ -493,7 +493,7 @@ export default function TaskBoard() {
             <Search className="h-4 w-4 text-slate-400" />
             <input
               className="w-full bg-transparent text-sm outline-none"
-              placeholder="Caută în titlu / notes / tags..."
+              placeholder="Search in title / notes / tags..."
               value={query}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setQuery(e.target.value)
@@ -516,13 +516,13 @@ export default function TaskBoard() {
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-slate-900">
             <div className="flex items-center gap-2">
               <Plus className="h-5 w-5" />
-              <h2 className="text-lg font-extrabold">Task nou</h2>
+              <h2 className="text-lg font-extrabold">New task</h2>
             </div>
 
             <div className="mt-4 grid gap-3">
               <input
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-200 dark:border-slate-800 dark:bg-slate-950"
-                placeholder="Titlu (max 100 caractere)"
+                placeholder="Title (max 100 characters)"
                 value={title}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setTitle(e.target.value)
@@ -582,7 +582,7 @@ export default function TaskBoard() {
                       openNativeDatePicker(createDeadlineRef.current)
                     }
                     className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900"
-                    title="Alege data"
+                    title="Select date"
                   >
                     <CalendarClock className="h-4 w-4" />
                   </button>
@@ -604,7 +604,7 @@ export default function TaskBoard() {
 
               <input
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none dark:border-slate-800 dark:bg-slate-950"
-                placeholder="Tags (ex: exam, urgent, casa) separate prin virgulă"
+                placeholder="Tags (e.g., exam, urgent, home), separated by commas"
                 value={tagsInput}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setTagsInput(e.target.value)
@@ -613,7 +613,7 @@ export default function TaskBoard() {
 
               <textarea
                 className="min-h-40 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none dark:border-slate-800 dark:bg-slate-950"
-                placeholder="Notes (opțional)"
+                placeholder="Notes (optional)"
                 value={notes}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                   setNotes(e.target.value)
@@ -625,7 +625,7 @@ export default function TaskBoard() {
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 py-3 text-sm font-extrabold text-white shadow-md hover:bg-blue-700"
               >
                 <Plus className="h-4 w-4" />
-                Adaugă
+                Add
               </button>
             </div>
           </section>
@@ -635,7 +635,7 @@ export default function TaskBoard() {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <ArrowUpDown className="h-5 w-5" />
-                <h2 className="text-lg font-extrabold">Listă</h2>
+                <h2 className="text-lg font-extrabold">List</h2>
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -646,7 +646,7 @@ export default function TaskBoard() {
                     setStatus(e.target.value as "all" | "pending" | "done")
                   }
                 >
-                  <option value="all">Toate</option>
+                  <option value="all">All</option>
                   <option value="pending">Pending</option>
                   <option value="done">Done</option>
                 </select>
@@ -658,7 +658,7 @@ export default function TaskBoard() {
                     setCatFilter(e.target.value as TaskCategory | "all")
                   }
                 >
-                  <option value="all">Toate categoriile</option>
+                  <option value="all">All categories</option>
                   {CATEGORIES.map((c) => (
                     <option key={c} value={c}>
                       {c}
@@ -673,7 +673,7 @@ export default function TaskBoard() {
                     setPrioFilter(e.target.value as TaskPriority | "all")
                   }
                 >
-                  <option value="all">Toate prioritățile</option>
+                  <option value="all">All priorities</option>
                   {PRIORITIES.map((p) => (
                     <option key={p.value} value={p.value}>
                       {p.label}
@@ -694,16 +694,16 @@ export default function TaskBoard() {
                     )
                   }
                 >
-                  <option value="created">Sort: Recente</option>
+                  <option value="created">Sort: Recent</option>
                   <option value="deadline">Sort: Deadline</option>
-                  <option value="priority">Sort: Prioritate</option>
+                  <option value="priority">Sort: Priority</option>
                   <option value="manual">Sort: Manual (drag)</option>
                 </select>
 
                 <button
                   onClick={() => setGroupByDue((v) => !v)}
                   className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800"
-                  title="Grupare după deadline"
+                  title="Group by deadline"
                 >
                   {groupByDue ? "Grouped" : "Flat"}
                 </button>
@@ -713,11 +713,11 @@ export default function TaskBoard() {
             <div className="mt-4">
               {dragEnabled ? (
                 <div className="mb-2 text-xs text-slate-500 dark:text-slate-300">
-                  Drag & drop activ (sort manual).
+                  Drag & drop enabled (manual sort).
                 </div>
               ) : (
                 <div className="mb-2 text-xs text-slate-500 dark:text-slate-300">
-                  Drag & drop doar pe <b>Sort: Manual</b> și când <b>Flat</b>.
+                  Drag & drop is available only when <b>Sort is set to Manual</b> and <b>Flat mode is enabled</b>.
                 </div>
               )}
 
@@ -790,7 +790,7 @@ export default function TaskBoard() {
                                       deleteTask(t.id);
                                     }}
                                     className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                                    title="Șterge"
+                                    title="Delete"
                                   >
                                     <Trash2 className="h-5 w-5" />
                                   </button>
@@ -801,7 +801,7 @@ export default function TaskBoard() {
 
                           {grouped[k].length === 0 && (
                             <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
-                              Nimic aici.
+                              Nothing here.
                             </div>
                           )}
                         </div>
@@ -853,7 +853,7 @@ export default function TaskBoard() {
                                   <button
                                     onClick={() => setSelectedId(t.id)}
                                     className="min-w-0 flex-1 text-left"
-                                    title="Deschide detalii"
+                                    title="Open details"
                                   >
                                     <div
                                       className={`truncate font-semibold ${
@@ -894,7 +894,7 @@ export default function TaskBoard() {
                                   <button
                                     className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
                                     onClick={() => deleteTask(t.id)}
-                                    title="Șterge"
+                                    title="Delete"
                                   >
                                     <Trash2 className="h-5 w-5" />
                                   </button>
@@ -969,11 +969,11 @@ export default function TaskBoard() {
                   className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-black py-4 text-sm font-extrabold text-white shadow-xl hover:bg-slate-900"
                 >
                   <Upload className="h-4 w-4" />
-                  Importă CSV
+                  Import CSV
                 </button>
 
                 <div className="mt-2 text-xs text-slate-600 dark:text-slate-300">
-                  CSV recomandat:{" "}
+                  Recommended CSV format:{" "}
                   <b>
                     title, category, repeat, priority, deadline, tags, notes
                   </b>
@@ -985,7 +985,7 @@ export default function TaskBoard() {
           {/* Details */}
           <aside className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-slate-900">
             <div className="flex items-center justify-between">
-              <div className="text-lg font-extrabold">Detalii</div>
+              <div className="text-lg font-extrabold">Details</div>
               {selected && (
                 <button
                   onClick={() => setSelectedId(null)}
@@ -999,7 +999,7 @@ export default function TaskBoard() {
 
             {!selected ? (
               <div className="mt-4 rounded-3xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
-                Selectează un task din listă ca să îl editezi.
+                Select a task from the list to edit it.
               </div>
             ) : (
               <div className="mt-4 grid gap-3">
@@ -1083,7 +1083,7 @@ export default function TaskBoard() {
                       openNativeDatePicker(editDeadlineRef.current)
                     }
                     className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900"
-                    title="Alege data"
+                    title="Select date"
                   >
                     <CalendarClock className="h-4 w-4" />
                   </button>

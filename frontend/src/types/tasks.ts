@@ -1,4 +1,4 @@
-export type TaskCategory = "Facultate" | "Personal" | "Shopping" | "Work";
+export type TaskCategory = "Faculty" | "Personal" | "Shopping" | "Work";
 export type TaskRepeat = "none" | "daily" | "weekly";
 export type TaskPriority = "low" | "medium" | "high";
 

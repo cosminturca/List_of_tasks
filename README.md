@@ -1,11 +1,25 @@
 # List of tasks - Technical Documentation
 
-# Students:
+A MERN-based task management web application with live deployment and technical documentation.
+
+## Application Screenshots
+
+### Dashboard
+![Dashboard](./dashboard.png)
+
+### Login Page
+![Login Page](./login.png)
+
+## Team Contribution
+
+The project was developed collaboratively, with both team members contributing to the design, implementation, testing, and documentation of the application.
+
+## Students
 
 - **Andone Andrei**
 - **Țurcă Cosmin-Constantin**
 
-# 1. General Overview
+## 1. General Overview
 
 The list of tasks application is a web platform dedicated to the efficient management of tasks and activities, aiming to improve user productivity. The project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js), providing a modern, fast, and scalable solution.
 
@@ -13,9 +27,9 @@ The source code is organized into two main directories:
 
 - **Backend:** The server API and database logic.
 
-- **Frontend:** The reactive user interface.
+- **Frontend:** The responsive user interface.
 
-# 2. Technical Objectives
+## 2. Technical Objectives
 
 - **Modern Architecture:** Using React together with Vite for optimal frontend performance.
 
@@ -27,7 +41,7 @@ The source code is organized into two main directories:
 
 - **Data Persistence:** Secure data storage using the non-relational MongoDB database.
 
-# 3. Features
+## 3. Features
 
 - **Task Management (CRUD):** Users can create new tasks, view the full list, edit details, and delete tasks that are no longer needed.
 
@@ -39,7 +53,7 @@ The source code is organized into two main directories:
 
 - **Offline Mode (Offline-First):** The application works even without internet access, saving data locally and automatically syncing it when the connection is restored.
 
-# 4. Technologies Used
+## 4. Technologies Used
 
 **Frontend**
 
@@ -69,7 +83,7 @@ The source code is organized into two main directories:
 
 - **Mongoose:** ODM (Object Data Modeling) for defining data structure (Schema) and validation.
 
-# 5. Agile Methodology
+## 5. Agile Methodology
 
 The project was developed using an iterative approach, structured into Sprints:
 
@@ -101,17 +115,17 @@ The project was developed using an iterative approach, structured into Sprints:
 
 ![Development Flow](./development-flow.png)
 
-# 6. Application Architecture
+## 6. Application Architecture
 
 ![Application Architecture](./application-architecture.png)
 
-# 7. React Components Architecture
+## 7. React Components Architecture
 
 ![React Components Architecture](./react-components-architecture.png)
 
-# 8. API Documentation
+## 8. API Documentation
 
-All routes are protected and require authentication through the Authorization Header.
+All API routes related to task management are protected and require authentication through the Authorization header.
 
 **GET /api/tasks** Returns the list of tasks associated exclusively with the authenticated user.
 
@@ -123,12 +137,12 @@ All routes are protected and require authentication through the Authorization He
 
 **DELETE /api/tasks/:id** Permanently deletes a task from the database.
 
-# 9. Frontend Routes
+## 9. Frontend Routes
 
 **Public Routes:** /login – The authentication page. If the user is already logged in, they are automatically redirected to the Dashboard.
 
-**Protected (Private) Routes:** / (Root) loads the <TaskBoard /> component.
+**Protected (Private) Routes:** / (Root) loads the `TaskBoard` component.
 
-# 10. Conclusions
+## 10. Conclusions
 
-List of tasks demonstrates the ability to build a functional and aesthetically pleasing Full Stack application. The use of Tailwind CSS enabled rapid interface development, while the MERN architecture ensures performance and scalability. The project is ready for future extensions.
+List of tasks demonstrates the ability to build a functional and visually appealing full-stack application. The use of Tailwind CSS enabled rapid interface development, while the MERN architecture ensures performance and scalability. The project is ready for future extensions.

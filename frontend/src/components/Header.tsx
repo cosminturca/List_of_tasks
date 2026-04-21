@@ -20,7 +20,7 @@ export function Header({ syncOk }: { syncOk: boolean }) {
       {/* user + sync */}
       <div className="flex items-center gap-4 text-sm text-slate-200">
         <span>
-          Conectat ca{" "}
+          Signed in as{" "}
           <strong className="text-white">
             {user?.displayName || user?.email}
           </strong>
